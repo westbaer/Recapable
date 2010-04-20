@@ -6,7 +6,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	self.title = @"Recapable";
+	self.title = RCLocalize(@"Capabilities");
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
