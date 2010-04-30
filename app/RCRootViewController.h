@@ -4,4 +4,6 @@
 
 }
 
+- (void)addCapability:(id)sender;
+
 @end
