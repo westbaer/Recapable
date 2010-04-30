@@ -34,10 +34,23 @@
 	}
 
 	cell.textLabel.text = [self.contentArray objectAtIndex:indexPath.row];
+	if(indexPath.row == self.selectedIndex) {
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	} else {
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}
 
 	return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	self.selectedIndex = indexPath.row;
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+	if(self.delegate && [self.delegate respondsToSelector:@selector(selectOptionController:didSelectIndex:fromArray:)]) {
+		[self.delegate selectOptionController:self didSelectIndex:self.selectedIndex fromArray:self.contentArray];
+	}
+}
 
 #pragma mark -
 #pragma mark Memory management

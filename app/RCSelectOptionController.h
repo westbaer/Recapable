@@ -2,17 +2,17 @@
 
 @class RCSelectOptionController;
 
-@protocol RCSelectOptionController <NSObject>
-- (void)selectOptionController:(RCSelectOptionController *) didSelectIndex:(NSInteger)index fromArray:(NSArray *)array;
+@protocol RCSelectOptionControllerDelegate <NSObject>
+- (void)selectOptionController:(RCSelectOptionController *)controller didSelectIndex:(NSInteger)index fromArray:(NSArray *)array;
 @end
 
 @interface RCSelectOptionController : UITableViewController {
-	id <RCSelectOptionController> _delegate;
+	id <RCSelectOptionControllerDelegate> _delegate;
 	NSArray *_contentArray;
 	NSInteger _selectedIndex;
 }
 
-@property (nonatomic, assign) id <RCSelectOptionController> delegate;
+@property (nonatomic, assign) id <RCSelectOptionControllerDelegate> delegate;
 @property (nonatomic, retain) NSArray *contentArray;
 @property (nonatomic, assign) NSInteger selectedIndex;
 

@@ -1,7 +1,6 @@
 #include "RCCreateViewController.h"
 #include "RecapableAppDelegate.h"
 #include "RCTextFieldCell.h"
-#include "RCSelectOptionController.h"
 
 @implementation RCCreateViewController
 
@@ -80,12 +79,20 @@
 	if(indexPath.section == 0) {
 		if(indexPath.row == 1) {	
 			RCSelectOptionController *viewController = [[RCSelectOptionController alloc] initWithArray:[NSArray arrayWithObjects:RCLocalize(@"Boolean"), RCLocalize(@"String"), RCLocalize(@"Number"), RCLocalize(@"Array"), RCLocalize(@"Dictionary"), nil]];
+			viewController.delegate = self;
 			viewController.title = RCLocalize(@"Type");
 			viewController.selectedIndex = 0;
 			[[self navigationController] pushViewController:viewController animated:YES];
 			[viewController release];
 		}
 	}
+}
+
+#pragma mark -
+#pragma mark RCSelectOptionController Delegate 
+
+- (void)selectOptionController:(RCSelectOptionController *)controller didSelectIndex:(NSInteger)index fromArray:(NSArray *)array {
+	[[self navigationController] popViewControllerAnimated:YES];
 }
 
 #pragma mark -

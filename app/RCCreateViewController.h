@@ -1,6 +1,7 @@
 #include <UIKit/UIKit.h>
+#include "RCSelectOptionController.h"
 
-@interface RCCreateViewController : UITableViewController {
+@interface RCCreateViewController : UITableViewController <RCSelectOptionControllerDelegate> {
 
 }
 
