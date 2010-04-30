@@ -1,0 +1,10 @@
+Package: com.collab.recapable
+Name: Recapable
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: inconceivable!
+Maintainer: -
+Author: -
+Section: System
+Tag: role::hacker
